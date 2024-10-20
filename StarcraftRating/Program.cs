@@ -1,28 +1,20 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using StarcraftRating.Controllers;
+using Microsoft.EntityFrameworkCore;
+using StarcraftRating.data;
 
-HttpClient client = new HttpClient();
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<PlayerContext>(options =>
+options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=aspnet-53bc9b9d-9d6a-45d4-8429-2a2761773502;Trusted_Connection=True;MultipleActiveResultSets=true"));
+builder.Services.AddRazorPages();
 var app = builder.Build();
-app.MapGet("/", () => HttpRequestExample.GetRequest("http://127.0.0.1:57055/web-api/v1/leaderboard-by-friends/12966"));
-app.Run();
-public class HttpRequestExample
+app.MapRazorPages();
+using (var scope = app.Services.CreateScope())
 {
-	private static readonly HttpClient client = new HttpClient();
-
-	public static async Task<string> GetRequest(string url)
-	{
-		try
-		{
-			HttpResponseMessage response = await client.GetAsync(url);
-			response.EnsureSuccessStatusCode();
-			string responseBody = await response.Content.ReadAsStringAsync();
-			return responseBody;
-		}
-		catch (HttpRequestException e)
-		{
-			return $"Error: {e.Message}";
-		}
-	}
+	var context = scope.ServiceProvider.GetRequiredService<PlayerContext>();
+	var seedData = new SeedData(context);
+	await seedData.AddPlayersAsync();
 }
+app.Run();

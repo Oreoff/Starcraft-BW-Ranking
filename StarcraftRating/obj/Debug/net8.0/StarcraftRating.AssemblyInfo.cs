@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("7feba8ce-4fe7-4204-a92c-a3433a3dc427")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("StarcraftRating")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2388fd432ce42824e7e8b2f1d0fd384d8da19834")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49f1ba52f99c55dc178ba643c1aa2db9b271e9cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("StarcraftRating")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StarcraftRating")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

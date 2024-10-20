@@ -1,0 +1,92 @@
+﻿@page
+@using StarcraftRating
+@model LeaderboardModel
+
+@{
+    ViewData["Title"] = "Leaderboard";
+}
+
+<h1>Leaderboard</h1>
+
+<h4>Player</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Player.rank" class="control-label"></label>
+                <input asp-for="Player.rank" class="form-control" />
+                <span asp-validation-for="Player.rank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.last_rank" class="control-label"></label>
+                <input asp-for="Player.last_rank" class="form-control" />
+                <span asp-validation-for="Player.last_rank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.gateway_id" class="control-label"></label>
+                <input asp-for="Player.gateway_id" class="form-control" />
+                <span asp-validation-for="Player.gateway_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.points" class="control-label"></label>
+                <input asp-for="Player.points" class="form-control" />
+                <span asp-validation-for="Player.points" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.wins" class="control-label"></label>
+                <input asp-for="Player.wins" class="form-control" />
+                <span asp-validation-for="Player.wins" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.loses" class="control-label"></label>
+                <input asp-for="Player.loses" class="form-control" />
+                <span asp-validation-for="Player.loses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.dissconects" class="control-label"></label>
+                <input asp-for="Player.dissconects" class="form-control" />
+                <span asp-validation-for="Player.dissconects" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.toon" class="control-label"></label>
+                <input asp-for="Player.toon" class="form-control" />
+                <span asp-validation-for="Player.toon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.battletag" class="control-label"></label>
+                <input asp-for="Player.battletag" class="form-control" />
+                <span asp-validation-for="Player.battletag" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.avatar" class="control-label"></label>
+                <input asp-for="Player.avatar" class="form-control" />
+                <span asp-validation-for="Player.avatar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.feature_stat" class="control-label"></label>
+                <input asp-for="Player.feature_stat" class="form-control" />
+                <span asp-validation-for="Player.feature_stat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.rating" class="control-label"></label>
+                <input asp-for="Player.rating" class="form-control" />
+                <span asp-validation-for="Player.rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player.bucket" class="control-label"></label>
+                <input asp-for="Player.bucket" class="form-control" />
+                <span asp-validation-for="Player.bucket" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
